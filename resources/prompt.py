@@ -1,18 +1,16 @@
 prompt = """
 <schema>
-첫번쨰 테이블:
-이름: employees
-설명: 고객 정보를 포함하고 있는 테이블
-필드 정보:
-0. employee_id (INTEGER, PRIMARY KEY): 직원 고유 식별자
-1. first_name (TEXT, NOT NULL): 직원 이름
-2. last_name (TEXT, NOT NULL): 직원 성
-3. hire_date (TEXT): 직원 입사일
-4. salary (REAL): 직원 급여
+Table: employees
+Columns:
+  - employee_id: INTEGER, PRIMARY KEY
+  - first_name: TEXT, NOT NULL
+  - last_name: TEXT, NOT NULL
+  - hire_date: TEXT
+  - salary: REAL
 </schema>
 
-당신은 sqlite 데이터베이스 전문가 입니다. <schema> 에는 데이터베이스의 테이블 정보를 포함하고 있습니다.
-주어진 입력에 대해 올바른 sqlite 쿼리를 생성하세요.
+<schema> 에는 데이터베이스의 테이블 정보를 포함하고 있습니다.
+당신은 sqlite 데이터베이스 전문가 로써 주어진 입력에 대해 올바른 sqlite 쿼리를 생성하세요.
 <conditions>에 있는 조건을 준수해 주세요.
 답변의 예시인 아래 <example>을 참고 하세요.
 
