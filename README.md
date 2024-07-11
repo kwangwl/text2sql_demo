@@ -12,11 +12,12 @@ git clone https://github.com/kwangwl/text2sql_demo.git
 cd text2sql_demo
 4. 다음 명령어를 입력하여 실습에 필요한 종속성을 설치합니다.
 pip install -r requirements.txt
-5. 다음 명령어를 입력하여 application 을 실행합니다.
+5. 다음 명령어를 입력하여 샘플 db 를 생성합니다 (sqlite)
+python3 ./resources/create_db.py
+6. 다음 명령어를 입력하여 application 을 실행합니다.
 streamlit run app.py --server.port 8080
-6. AWS Cloud9에서 Preview -> Preview Running Application을 선택합니다.
-7. 어플리케이션이 실행된 웹페이지가 표시됩니다.
-
+7. AWS Cloud9에서 Preview -> Preview Running Application을 선택합니다.
+8.어플리케이션이 실행된 웹페이지가 표시됩니다.
 
 Ref
 1. https://aws.amazon.com/blogs/machine-learning/build-a-robust-text-to-sql-solution-generating-complex-queries-self-correcting-and-querying-diverse-data-sources/
