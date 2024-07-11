@@ -1,6 +1,6 @@
 import streamlit as st
 from modules.bedrock import get_model_response
-from modules.database import get_db_connection, query_sqlite, get_table_metadata
+from modules.database import query_sqlite
 from resources.prompt import prompt
 
 # config
