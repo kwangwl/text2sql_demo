@@ -12,6 +12,7 @@ Columns:
   - last_name: TEXT, NOT NULL
   - hire_date: TEXT
   - salary: REAL
+  - department_id INTEGER, FOREIGN KEY REFERENCES Departments(department_id)
   
 Table: Projects
 Columns:

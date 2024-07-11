@@ -21,9 +21,11 @@ def generate_sql_from_text(parameter, user_query):
 st.set_page_config(page_title="text2sql demo", layout='wide')
 st.title("Text2SQL 데모 with SQLite")
 
-metadata = get_table_metadata('employees')
-conn = get_db_connection()
+with st.expander("Database 관계도"):
+    st.image("resources/db_schema.png")
 
+with st.expander("Query 예시"):
+    st.text("모든 직원의 이름과 급여\n모든 프로젝트의 이름과 시작일\nJohn Doe가 속한 프로젝트와 그의 역할")
 st.header("자연어 쿼리 입력")
 user_query = st.text_input("쿼리:")
 
