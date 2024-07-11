@@ -1,5 +1,10 @@
 prompt = """
 <schema>
+Table: Departments
+Columns:
+- department_id: INTEGER, PRIMARY KEY
+- department_name: TEXT, NOT NULL
+
 Table: employees
 Columns:
   - employee_id: INTEGER, PRIMARY KEY
@@ -7,6 +12,20 @@ Columns:
   - last_name: TEXT, NOT NULL
   - hire_date: TEXT
   - salary: REAL
+  
+Table: Projects
+Columns:
+- project_id: INTEGER, PRIMARY_KEY
+- project_name: TEXT, NOT NULL
+- start_date: TEXT
+- end_date: TEXT
+
+Table: EmployeeProjects
+Columns:
+- employee_id: INTEGER, FOREIGN KEY (employee_id) REFERENCES Employees(employee_id)
+- project_id: INTEGER, FOREIGN KEY (project_id) REFERENCES Projects(project_id)
+- role: TEXT
+- PRIMARY KEY: (employee_id, project_id)
 </schema>
 
 <schema> 에는 데이터베이스의 테이블 정보를 포함하고 있습니다.
@@ -21,10 +40,16 @@ Columns:
 
 <example>
 Human: "모든 직원의 이름과 급여"
-Assistant: SELECT first_name, salary FROM employees;
+Assistant: SELECT first_name, last_name, salary FROM Employees;
 Human: "2020년 이후에 고용된 모든 직원 목록"
-Assistant: SELECT * FROM employees WHERE hire_date >= '2020-01-01';
-Human: "이름이 John인 직원의 정보"
-Assistant: SELECT * FROM employees WHERE first_name = 'John';
+Assistant: SELECT * FROM Employees WHERE hire_date >= '2020-01-01';
+Human: "모든 부서의 이름과 ID"
+Assistant: SELECT department_id, department_name FROM Departments;
+Human: "모든 프로젝트의 이름과 시작일"
+Assistant: SELECT project_name, start_date FROM Projects;
+Human: "John Doe가 속한 프로젝트와 그의 역할"
+Assistant: SELECT Projects.project_name, EmployeeProjects.role FROM Employees JOIN EmployeeProjects ON Employees.employee_id = EmployeeProjects.employee_id JOIN Projects ON EmployeeProjects.project_id = Projects.project_id WHERE Employees.first_name = 'John' AND Employees.last_name = 'Doe';
+Human: "Finance 부서의 모든 직원 이름"
+Assistant: SELECT Employees.first_name, Employees.last_name FROM Employees JOIN Departments ON Employees.department_id = Departments.department_id WHERE Departments.department_name = 'Finance';
 </example>
 """
