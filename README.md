@@ -17,7 +17,7 @@ Text2SQL Demo
 6. 다음 명령어를 입력하여 application 을 실행합니다.
 - streamlit run app.py --server.port 8080
 7. AWS Cloud9에서 Preview -> Preview Running Application을 선택합니다.
-- 8.어플리케이션이 실행된 웹페이지가 표시됩니다.
+8.어플리케이션이 실행된 웹페이지가 표시됩니다.
 
 Ref
 1. https://aws.amazon.com/blogs/machine-learning/build-a-robust-text-to-sql-solution-generating-complex-queries-self-correcting-and-querying-diverse-data-sources/
